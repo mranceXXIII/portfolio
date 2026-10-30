@@ -9,8 +9,10 @@ export default function Navbar() {
         </a>
         <ul className="nav-links">
           <li><a href="#stats">About</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#tech">Tech Stack</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#credentials">Credentials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a

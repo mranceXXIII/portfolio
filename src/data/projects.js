@@ -57,7 +57,7 @@ export const projects = [
     name: 'Web-based Classroom Utilization Management System 2.0',
     url: 'https://github.com/mranceXXIII/Web-based-Classroom-Utilization-Management-System-2.0',
     description:
-      'Web platform for managing and optimizing classroom utilization across a school.',
+      'Capstone project for the RSU-CC Education Program — a web platform for managing and optimizing classroom utilization across a school.',
     tech: [
       { name: 'PHP', icon: icon('php') },
       { name: 'JavaScript', icon: icon('javascript') },
@@ -117,6 +117,91 @@ export const projects = [
     topics: ['databricks', 'data-engineering'],
     featured: false,
     origin: 'original',
+  },
+  // ── Projects from the resume (not on GitHub) ────────────────────────
+  {
+    name: 'End-to-End ETL/ELT in Databricks',
+    description:
+      'Designed and implemented an ETL/ELT pipeline following the Bronze-Silver-Gold medallion pattern in a Databricks Lakehouse — automated Bronze ingestion with schema validation and lineage, PySpark/SQL transformations in Silver, curated Gold tables exposed to Power BI dashboards.',
+    tech: [
+      { name: 'Databricks', icon: SIMPLE('databricks', 'ff3621') },
+      { name: 'PySpark', icon: SIMPLE('apachespark', 'e25a1c') },
+      { name: 'SQL', material: 'database' },
+      { name: 'Power BI', material: 'insights' },
+    ],
+    language: null,
+    langColor: '#8b949e',
+    topics: ['etl', 'medallion-architecture', 'lakehouse'],
+    featured: true,
+    origin: 'other',
+  },
+  {
+    name: 'Microsoft Fabric Lakehouse — Learning & POC',
+    description:
+      'Designed a Microsoft Fabric-style Lakehouse architecture following Bronze-Silver-Gold principles — ingested raw datasets into a simulated Bronze layer and prepared analytics-ready Gold tables using Python and SQL for Power BI reporting.',
+    tech: [
+      { name: 'MS Fabric', material: 'dataset' },
+      { name: 'Python', icon: icon('python') },
+      { name: 'SQL', material: 'database' },
+    ],
+    language: null,
+    langColor: '#8b949e',
+    topics: ['microsoft-fabric', 'lakehouse', 'poc'],
+    featured: true,
+    origin: 'other',
+  },
+  {
+    name: 'AI Agent Workflows for IT Operations',
+    description:
+      'AI agent workflows used daily as an IT Operations Support specialist — technical documentation, knowledge-base drafting, support responses, email handling, Jira task management and meeting scheduling through agent-driven prompts and reusable workflow steps.',
+    tech: [
+      { name: 'AI Agents', icon: SIMPLE('claude', 'd97757') },
+      { name: 'Jira', icon: SIMPLE('jira', '0052cc') },
+      { name: 'Automation', material: 'smart_toy' },
+    ],
+    language: null,
+    langColor: '#8b949e',
+    topics: ['ai-agents', 'automation', 'it-operations'],
+    featured: true,
+    origin: 'other',
+  },
+  {
+    name: 'Selenium Web Scraping & Browser Automation',
+    description:
+      'Automation solution using Selenium to scrape and collect data from web sources — element interaction and repeatable script-driven runs turn manual data gathering into analysis-ready datasets.',
+    tech: [{ name: 'Selenium', icon: SIMPLE('selenium', '43b02a') }],
+    language: null,
+    langColor: '#8b949e',
+    topics: ['selenium', 'scraping', 'automation'],
+    featured: false,
+    origin: 'other',
+  },
+  {
+    name: 'Credit Monitoring & Evaluation System',
+    description:
+      'Internal business system for the credit department — tracks, monitors and evaluates credit records in one centralized platform, consolidating monitoring data into organized, searchable records for evaluation workflows and department reporting.',
+    tech: [{ name: 'Web App', material: 'web' }],
+    language: null,
+    langColor: '#8b949e',
+    topics: ['internal-system', 'business'],
+    featured: false,
+    origin: 'other',
+  },
+  {
+    name: 'Python Data Analysis & ML Exercises',
+    description:
+      'Regression and clustering implementations (Linear/Logistic Regression, K-Means) with automated preprocessing pipelines in Pandas/NumPy, Matplotlib visualizations, and GUI apps built with Tkinter, Flask and Django.',
+    tech: [
+      { name: 'Pandas', icon: SIMPLE('pandas', '150458') },
+      { name: 'NumPy', icon: DEVICON('numpy') },
+      { name: 'scikit-learn', icon: SIMPLE('scikitlearn', 'f7931e') },
+      { name: 'Matplotlib', material: 'monitoring' },
+    ],
+    language: null,
+    langColor: '#8b949e',
+    topics: ['machine-learning', 'analytics'],
+    featured: false,
+    origin: 'other',
   },
   // ── Forks & community ───────────────────────────────────────────────
   {

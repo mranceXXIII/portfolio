@@ -111,14 +111,28 @@ section { scroll-margin-top: 84px; }
 .stat-value { font-size: 1.9rem; font-weight: 800; color: var(--accent); }
 .stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; margin-top: 2px; }
 
-/* ── Tech stack — hover icon grid ───────────────────── */
-.tech-grid { display: grid; gap: 32px 20px; grid-template-columns: 1fr; }
+/* ── Tech stack — right-to-left marquee + hover effects ── */
+.tech-grid { display: grid; gap: 34px 20px; grid-template-columns: 1fr; }
 .tech-category h3 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px; }
-.tech-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.tech-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.tech-track {
+  display: flex; gap: 14px; width: max-content;
+  animation: tech-scroll-left 40s linear infinite;
+  will-change: transform;
+}
+.tech-marquee:hover .tech-track { animation-play-state: paused; }
+@keyframes tech-scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 .tech-item {
   position: relative;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  width: 86px; height: 86px;
+  width: 86px; height: 86px; flex-shrink: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -146,6 +160,86 @@ section { scroll-margin-top: 84px; }
   z-index: 10;
 }
 .tech-item:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── Hero extras ────────────────────────────────────── */
+.hero-roles { margin-top: 10px; font-size: 0.85rem; font-weight: 600; color: var(--accent); letter-spacing: 0.01em; }
+.hero-location {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 8px; font-size: 0.82rem; color: var(--muted);
+}
+.hero-location .material-symbols-outlined { font-size: 16px; }
+
+/* ── Experience timeline ────────────────────────────── */
+.timeline { display: flex; flex-direction: column; gap: 24px; position: relative; padding-left: 28px; }
+.timeline::before {
+  content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--border);
+}
+.timeline-item { position: relative; }
+.timeline-marker {
+  position: absolute; left: -28px; top: 26px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--surface); border: 3px solid var(--accent);
+}
+.job-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 26px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.job-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.job-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+.job-card h3 { font-size: 1.1rem; font-weight: 700; }
+.job-subtitle { font-weight: 500; color: var(--muted); }
+.job-company { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: 2px; }
+.job-period {
+  font-family: var(--mono); font-size: 0.74rem; font-weight: 600;
+  padding: 5px 12px; border-radius: 999px; white-space: nowrap;
+  background: var(--bg); border: 1px solid var(--border); color: var(--muted);
+}
+.job-period.current { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.job-highlights { list-style: none; display: grid; gap: 8px; }
+.job-highlights li {
+  position: relative; padding-left: 22px;
+  font-size: 0.9rem; color: var(--muted);
+}
+.job-highlights li::before {
+  content: '▹'; position: absolute; left: 0; color: var(--accent); font-weight: 700;
+}
+
+/* ── Credentials ────────────────────────────────────── */
+.creds-grid { display: grid; gap: 40px; grid-template-columns: 1.1fr 0.9fr; }
+.creds-heading { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 16px; }
+.cert-list { display: grid; gap: 10px; }
+.cert-card {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 13px 16px;
+  font-size: 0.88rem; font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.cert-card:hover { transform: translateX(4px); border-color: var(--accent); }
+.cert-card img, .cert-card .material-symbols-outlined { width: 22px; height: 22px; font-size: 22px; flex-shrink: 0; }
+.edu-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 26px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.edu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.edu-icon { font-size: 34px; color: var(--accent); margin-bottom: 10px; }
+.edu-card h4 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
+.edu-school { color: var(--muted); font-size: 0.88rem; margin-top: 4px; }
+.edu-distinction { color: var(--accent); font-weight: 600; font-size: 0.88rem; margin: 10px 0 4px; }
+
+/* ── Contact row ────────────────────────────────────── */
+.contact-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.card-link.muted { color: var(--muted); font-weight: 500; }
+
+@media (max-width: 860px) {
+  .creds-grid { grid-template-columns: 1fr; }
+}
 
 /* ── Projects ───────────────────────────────────────── */
 .project-tabs { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
@@ -215,6 +309,7 @@ section { scroll-margin-top: 84px; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .tech-track { animation: none; }
 }
 
 /* ── Responsive ─────────────────────────────────────── */

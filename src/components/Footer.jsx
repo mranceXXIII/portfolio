@@ -6,19 +6,27 @@ export default function Footer() {
       <div className="container footer-inner">
         <h2>Let's build something.</h2>
         <p>
-          I'm open to freelance and full-time work on full-stack apps, Power BI
-          solutions, and AI-agent tooling. The fastest way to reach me is via
-          GitHub.
+          Open to opportunities in IT support, automation, data engineering and
+          analytics. Reach me on any of these:
         </p>
-        <a
-          className="icon-link"
-          href={profile.github}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src="https://cdn.simpleicons.org/github/0f172a" alt="GitHub" />
-          github.com/{profile.handle}
-        </a>
+        <div className="contact-row">
+          <a className="icon-link" href={`mailto:${profile.email}`}>
+            <span className="material-symbols-outlined" aria-hidden="true">mail</span>
+            Email
+          </a>
+          <a className="icon-link" href={`tel:${profile.phone.replace(/\s/g, '')}`}>
+            <span className="material-symbols-outlined" aria-hidden="true">call</span>
+            {profile.phone}
+          </a>
+          <a className="icon-link" href={profile.linkedin} target="_blank" rel="noreferrer">
+            <img src="https://cdn.simpleicons.org/linkedin/0a66c2" alt="LinkedIn" />
+            LinkedIn
+          </a>
+          <a className="icon-link" href={profile.github} target="_blank" rel="noreferrer">
+            <img src="https://cdn.simpleicons.org/github/0f172a" alt="GitHub" />
+            GitHub
+          </a>
+        </div>
         <div className="footer-meta">
           <span>
             © {new Date().getFullYear()} {profile.name}

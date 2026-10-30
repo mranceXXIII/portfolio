@@ -3,6 +3,7 @@ import { projects } from '../data/projects'
 
 const TABS = [
   { id: 'original', label: 'Original Projects' },
+  { id: 'other', label: 'Data & IT Work' },
   { id: 'fork', label: 'Forks & Community' },
   { id: 'all', label: 'All' },
 ]
@@ -82,14 +83,18 @@ export default function Projects() {
                 ) : (
                   <span className="lang">—</span>
                 )}
-                <a
-                  className="card-link"
-                  href={project.homepage ?? project.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {project.homepage ? 'Visit site' : 'View on GitHub'} →
-                </a>
+                {project.url || project.homepage ? (
+                  <a
+                    className="card-link"
+                    href={project.homepage ?? project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {project.homepage ? 'Visit site' : 'View on GitHub'} →
+                  </a>
+                ) : (
+                  <span className="card-link muted">Internal project</span>
+                )}
               </div>
             </article>
           ))}
