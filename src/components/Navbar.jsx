@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container navbar-inner">
         <a href="#top" className="nav-logo">
-          JR<span>.</span>XXIII
+          MJ<span>RANCE</span>
         </a>
         <ul className="nav-links">
           <li><a href="#stats">About</a></li>
