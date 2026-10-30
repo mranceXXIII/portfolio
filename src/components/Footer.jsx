@@ -1,4 +1,28 @@
+import { useState } from 'react'
 import { profile } from '../data/profile'
+
+/**
+ * Brand icon that falls back to a Google Material Symbol if the CDN
+ * asset ever disappears (Simple Icons has removed several brand logos,
+ * e.g. LinkedIn, OpenAI, Canva).
+ */
+function BrandIcon({ src, alt, fallback }) {
+  const [failed, setFailed] = useState(false)
+  if (failed) {
+    return (
+      <span className="material-symbols-outlined brand-fallback" aria-hidden="true">
+        {fallback}
+      </span>
+    )
+  }
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onError={() => setFailed(true)}
+    />
+  )
+}
 
 export default function Footer() {
   return (
@@ -19,11 +43,19 @@ export default function Footer() {
             {profile.phone}
           </a>
           <a className="icon-link" href={profile.linkedin} target="_blank" rel="noreferrer">
-            <img src="https://cdn.simpleicons.org/linkedin/0a66c2" alt="LinkedIn" />
+            <BrandIcon
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+              alt="LinkedIn"
+              fallback="work"
+            />
             LinkedIn
           </a>
           <a className="icon-link" href={profile.github} target="_blank" rel="noreferrer">
-            <img src="https://cdn.simpleicons.org/github/0f172a" alt="GitHub" />
+            <BrandIcon
+              src="https://cdn.simpleicons.org/github/0f172a"
+              alt="GitHub"
+              fallback="code"
+            />
             GitHub
           </a>
         </div>

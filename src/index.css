@@ -235,6 +235,8 @@ section { scroll-margin-top: 84px; }
 
 /* ── Contact row ────────────────────────────────────── */
 .contact-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.icon-link .material-symbols-outlined, .brand-fallback { font-size: 20px; }
+.brand-fallback { color: #0a66c2; }
 .card-link.muted { color: var(--muted); font-weight: 500; }
 
 @media (max-width: 860px) {
